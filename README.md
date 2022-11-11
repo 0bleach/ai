@@ -551,21 +551,20 @@ if cur_state.boat == 'left':
 new_state = State(cur_state.cannibalLeft, cur_state.missionaryLeft -
 2, 'right',
  cur_state.cannibalRight, cur_state.missionaryRight + 2)
-## Two missionaries cross left to right.
+
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft - 2, 
 cur_state.missionaryLeft, 'right',
  cur_state.cannibalRight + 2, cur_state.missionaryRight)
-## Two cannibals cross left to right.
+
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft - 1, cur_state.missionaryLeft 
 - 1, 'right',
  cur_state.cannibalRight + 1, cur_state.missionaryRight + 1)
-## One missionary and one cannibal cross left to right.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
@@ -573,14 +572,12 @@ children.append(new_state)
 new_state = State(cur_state.cannibalLeft, cur_state.missionaryLeft -
 1, 'right',
  cur_state.cannibalRight, cur_state.missionaryRight + 1)
-## One missionary crosses left to right.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft - 1, 
 cur_state.missionaryLeft, 'right',
  cur_state.cannibalRight + 1, cur_state.missionaryRight)
-## One cannibal crosses left to right.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
@@ -588,28 +585,24 @@ else:
 new_state = State(cur_state.cannibalLeft, cur_state.missionaryLeft + 
 2, 'left',
  cur_state.cannibalRight, cur_state.missionaryRight - 2)
-## Two missionaries cross right to left.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft + 2, 
 cur_state.missionaryLeft, 'left',
  cur_state.cannibalRight - 2, cur_state.missionaryRight)
-## Two cannibals cross right to left.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft + 1, cur_state.missionaryLeft 
 + 1, 'left',
  cur_state.cannibalRight - 1, cur_state.missionaryRight - 1)
-## One missionary and one cannibal cross right to left.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
 new_state = State(cur_state.cannibalLeft, cur_state.missionaryLeft + 
 1, 'left',
  cur_state.cannibalRight, cur_state.missionaryRight - 1)
-## One missionary crosses right to left.
 
 if new_state.is_valid():
 new_state.parent = cur_state
@@ -617,7 +610,6 @@ children.append(new_state)
 new_state = State(cur_state.cannibalLeft + 1, 
 cur_state.missionaryLeft, 'left',
  cur_state.cannibalRight - 1, cur_state.missionaryRight)
-## One cannibal crosses right to left.
 if new_state.is_valid():
 new_state.parent = cur_state
 children.append(new_state)
@@ -701,8 +693,6 @@ def find_location(rows, element_to_find):
  for ic, element in enumerate(row):
  if element == element_to_find:
  return ir, ic
-# we create a cache for the goal position of each piece, so we don't have to
-# recalculate them every time
 goal_positions = {}
 rows_goal = string_to_list(GOAL)
 for number in '12345678e':
@@ -792,9 +782,9 @@ for m in range(52):
  print(deck[m])
  
 # OR
-### Python program to shuffle a deck of card using the module random and 
-draw 5 cards
-#### import modules
+# Python program to shuffle a deck of card using the module random and 
+###draw 5 cards
+
 import itertools, random
  make a deck of cards
 deck = list(itertools.product(range(1,14),['Spade','Heart','Diamond','Club']))
