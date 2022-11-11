@@ -650,7 +650,6 @@ solution = breadth_first_search()
 print ("Missionaries and Cannibals solution:")
 print ("(cannibalLeft,missionaryLeft,boat,cannibalRight,missionaryRight)")
 print_solution(solution)
-# if called from the command line, call main()
 if __name__ == "__main__":
  main()
 
